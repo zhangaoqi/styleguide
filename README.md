@@ -13,7 +13,7 @@ style guidelines we use for Google code. If you are modifying a project that
 originated at Google, you may be pointed to this page to see the style guides
 that apply to that project.
 
-This project holds the [C++ Style Guide][cpp], [Objective-C Style Guide][objc],
+This project holds the [C++ Style Guide][cpp], [Swift Style Guide][swift], [Objective-C Style Guide][objc],
 [Java Style Guide][java], [Python Style Guide][py], [R Style Guide][r],
 [Shell Style Guide][sh], [HTML/CSS Style Guide][htmlcss],
 [JavaScript Style Guide][js], [AngularJS Style Guide][angular],
@@ -36,11 +36,12 @@ The following Google style guides live outside of this project:
 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
 
 [cpp]: https://google.github.io/styleguide/cppguide.html
+[swift]: https://google.github.io/swift/
 [objc]: objcguide.md
 [java]: https://google.github.io/styleguide/javaguide.html
 [py]: https://google.github.io/styleguide/pyguide.html
 [r]: https://google.github.io/styleguide/Rguide.html
-[sh]: https://google.github.io/styleguide/shell.xml
+[sh]: https://google.github.io/styleguide/shellguide.html
 [htmlcss]: https://google.github.io/styleguide/htmlcssguide.html
 [js]: https://google.github.io/styleguide/jsguide.html
 [angular]: https://google.github.io/styleguide/angularjs-google-style.html
