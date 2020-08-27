@@ -809,8 +809,16 @@ mybinary ${flags}
 # Command expansions return single strings, not arrays. Avoid
 # unquoted expansion in array assignments because it won’t
 # work correctly if the command output contains special
-# characters.
+# characters or whitespace.
+
+# This expands the listing output into a string, then does special keyword
+# expansion, and then whitespace splitting.  Only then is it turned into a
+# list of words.  The ls command may also change behavior based on the user's
+# active environment!
 declare -a files=($(ls /directory))
+
+# The get_arguments writes everything to STDOUT, but then goes through the
+# same expansion process above before turning into a list of arguments.
 mybinary $(get_arguments)
 ```
 
@@ -928,7 +936,7 @@ statement, and otherwise be wary of its expression evaluating to zero
 ```shell
 # Simple calculation used as text - note the use of $(( … )) within
 # a string.
-echo "$(( 2 + 2 )) is 4!?"
+echo "$(( 2 + 2 )) is 4"
 
 # When performing arithmetic comparisons for testing
 if (( a < b )); then
@@ -1245,17 +1253,17 @@ We prefer the use of builtins such as the *Parameter Expansion*
 functions in `bash(1)` as it's more robust and portable
 (especially when compared to things like `sed`).
 
-Example:
+Examples:
 
 ```shell
 # Prefer this:
-addition=$(( ${X} + ${Y} ))
+addition=$(( X + Y ))
 substitution="${string/#foo/bar}"
 ```
 
 ```shell
 # Instead of this:
-addition="$(expr ${X} + ${Y})"
+addition="$(expr "${X}" + "${Y}")"
 substitution="$(echo "${string}" | sed -e 's/^foo/bar/')"
 ```
 
